@@ -244,14 +244,14 @@ error:
 	return ERR_PTR(ret);
 }
 
-void *fl2000_gem_prime_vmap(struct drm_gem_object *gem_obj)
+int fl2000_gem_prime_vmap(struct drm_gem_object *gem_obj, struct dma_buf_map *bmap)
 {
 	struct fl2000_gem_object *obj = to_fl2000_gem_obj(gem_obj);
 
 	return obj->vaddr;
 }
 
-void fl2000_gem_prime_vunmap(struct drm_gem_object *gem_obj, void *vaddr)
+void fl2000_gem_prime_vunmap(struct drm_gem_object *gem_obj, struct dma_buf_map *bmap)
 {
 	/* Do nothing */
 }
